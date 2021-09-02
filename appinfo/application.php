@@ -99,8 +99,7 @@ class Application extends App {
                 $c->query("ServerContainer")->getUserManager(),
                 $c->query("L10N"),
                 $c->query("Logger"),
-                $this->appConfig,
-                $c->query("Session")
+                $this->appConfig
             );
         });
 
@@ -113,9 +112,7 @@ class Application extends App {
                 $c->query("URLGenerator"),
                 $c->query("L10N"),
                 $c->query("Logger"),
-                $this->appConfig,
-                $c->query("IManager"),
-                $c->query("Session")
+                $this->appConfig
             );
         });
 

@@ -72,7 +72,6 @@ class SettingsController extends OCSController {
      *
      * @NoAdminRequired
      * @CORS
-     * @PublicPage
      */
     public function formats() {
         $formats = $this->config->GetFormats();

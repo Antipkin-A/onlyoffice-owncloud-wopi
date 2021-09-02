@@ -102,7 +102,7 @@ class Utils {
      *
      * @return array
      */
-    public function GetActionsByExt($ext = "") {
+    public function GetActionsByExt($ext = null) {
         $result = [];
         $discovery = $this->GetDiscoveryInfo();
 

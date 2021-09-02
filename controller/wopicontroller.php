@@ -242,22 +242,22 @@ class WopiController extends OCSController {
 
         try {
             \OC_Util::tearDownFS();
-    
+
             $userId = isset($payload->userId) ? $payload->userId : null;
             $user = $this->userManager->get($userId);
             if (!empty($user)) {
                 \OC_User::setUserId($userId);
                 \OC_Util::setupFS($userId);
             }
-    
+
             list ($file, $error) = $this->getFile($userId, $fileId);
             if (isset($error)) {
                 $this->logger->error("putContents: getFile $fileId error", ["app" => $this->appName]);
                 return new $error;
             }
-    
+
             $newData = fopen("php://input", "rb");
-    
+
             $this->retryOperation(function () use ($file, $newData) {
                 return $file->putContent($newData);
             });
