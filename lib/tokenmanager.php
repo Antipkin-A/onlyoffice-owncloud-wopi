@@ -73,7 +73,7 @@ class TokenManager {
      */
     public function generate($fileId, $canWrite, $userId) {
         $secret = $this->config->GetSecret();
-        $expired = time() + 7 * 24 * 60 * 60;
+        $expired = (time() + 60 * 60 * 10) * 1000;
         $params = [
             "fileId" => $fileId,
             "canWrite" => $canWrite,
